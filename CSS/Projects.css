@@ -67,6 +67,18 @@
   margin-bottom: 40px;
 }
 
+/* .ProjectMobile::after {
+  content: '';
+  width: 40%;
+  height: 12px;
+  position: absolute;
+  top: 0;
+  left: 30%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #575657;
+} */
+
 .ProjectMobile.ScrollHint::after {
   content: '';
   width: 10px;

@@ -56,4 +56,30 @@ $navItems.forEach($navItem => {
 document.querySelector('.ScrollHint').addEventListener('mouseover', function (e) {
   e.stopPropagation();
   e.target.classList.remove('ScrollHint');
-})
+});
+
+
+// SVG Morph
+if (typeof Snap !== undefined) {
+  var svg = document.querySelector('.ContactIcon.Animated > svg'),
+      messageIcon = Snap.select('#message'),
+      phoneIcon = Snap.select('#phone');
+
+  var messageIconPoints = messageIcon.node.getAttribute('d'),
+      phoneIconPoints = phoneIcon.node.getAttribute('d');
+
+  var toPhone = () => {
+    messageIcon.animate({
+      d: phoneIconPoints
+    }, 1000, mina.backout, toMessage);
+  }
+
+  var toMessage = () => {
+    messageIcon.animate({
+      d: messageIconPoints
+    }, 1000, mina.backout, toPhone);
+  }
+  
+  // toMessage();
+  // absolutely atrocious. come back later
+}
