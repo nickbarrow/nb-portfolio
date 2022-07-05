@@ -1,0 +1,114 @@
+.ProjectsList {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 24px;
+  border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.Project {
+  display: inline-block;
+  margin: 50px 0;
+}
+
+.ProjectTitle {
+  font-size: 18px
+}
+
+.ProjectDescription {
+  font-size: 16px;
+}
+
+.ProjectImageContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-bottom: 30px;
+}
+
+.ProjectDesktop,
+.ProjectMobile {
+  border-radius: 20px;
+  border: 10px solid rgba(96, 96, 96, 0.85);
+  transition: .5s;
+}
+.ProjectDesktop:hover,
+.ProjectMobile:hover {
+  border: 10px solid rgba(96, 96, 96, 1);
+}
+.ProjectDesktop:hover + .ProjectMobile {
+  opacity: .15;
+}
+
+.ProjectDesktop {
+  width: 600px;
+  height: 338px;
+  margin-bottom: 20px;
+  overflow-y: auto;
+}
+
+.ProjectMobile {
+  width: 160px;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+.ProjectMobile:first-child {
+  margin-bottom: 20px;
+}
+.ProjectMobile:not(:first-child) {
+  margin-left: -80px;
+}
+.ProjectMobile:hover + .ProjectMobile {
+	opacity: .15;
+}
+.ProjectMobile:first-child + .ProjectMobile:nth-child(2) {
+  margin-bottom: 40px;
+}
+
+.ProjectMobile.ScrollHint::after {
+  content: '';
+  width: 10px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #F5526A;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  opacity: 0;
+  transform: scale(.7) translateX(10px);
+  animation: ScrollHint 3.5s infinite;
+  transition: .5s;
+}
+
+.ProjectDesktop img,
+.ProjectMobile img {
+  width: 100%;
+  object-fit: cover;
+}
+
+@keyframes ScrollHint {
+  0% {
+    opacity: 0;
+    transform: scale(.7) translateX(10px);
+  }
+  10% {
+    opacity: 1;
+    transform: none;
+    top: 5px;
+  }
+  50% {
+    top: 90px;
+  }
+  80% {
+    opacity: 1;
+    transform: none;
+    top: 150px;
+  }
+  100% {
+    top: 150px;
+    opacity: 0;
+    transform: scale(.7) translateX(10px);
+  }
+}
